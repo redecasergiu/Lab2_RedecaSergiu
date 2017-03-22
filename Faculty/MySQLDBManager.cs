@@ -52,10 +52,13 @@ namespace Faculty
                 conn.Open();
                 MySqlCommand cmd=new MySqlCommand();
                 cmd.Connection = conn;
+                //if (student.ID == null)
+                //    cmd.CommandText = "INSERT INTO student(name, birthdate, address) VALUES( @name, @birthdate, @address)";
                 cmd.CommandText = "INSERT INTO student(id, name, birthdate, address) VALUES(@id, @name, @birthdate, @address)";
                 cmd.Prepare();
 
-                cmd.Parameters.AddWithValue("@id", student.ID);
+                //if (student.ID != null)
+                //    cmd.Parameters.AddWithValue("@id", student.ID);
                 cmd.Parameters.AddWithValue("@name", student.Name);
                 cmd.Parameters.AddWithValue("@birthdate", student.BirthDate);
                 cmd.Parameters.AddWithValue("@address", student.Address);
